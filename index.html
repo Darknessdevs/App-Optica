@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Óptica - Historial Clínico Completo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Historia Clinica G&M</h1>
+            <p>Gestion Historia Clinixa</p>
+        </header>
+
+        <main class="content-grid">
+            <section class="card form-section">
+                <h2>Nueva Consulta Optométrica</h2>
+                <form id="client-form">
+                    
+                    <div class="form-block">
+                        <span class="block-title">1. Información del Paciente</span>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label for="client-name">Nombre Completo</label>
+                                <input type="text" id="client-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="client-phone">Teléfono</label>
+                                <input type="tel" id="client-phone" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="client-age">Edad</label>
+                            <input type="number" id="client-age" required min="0">
+                        </div>
+                    </div>
+
+                    <div class="form-block">
+                        <span class="block-title">2. Anamnesis (Motivo & Antecedentes)</span>
+                        <div class="form-group">
+                            <label for="anamnesis-motivo">Motivo de Consulta</label>
+                            <textarea id="anamnesis-motivo" rows="2"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="anamnesis-antecedentes">Antecedentes Clínicos / Oculares</label>
+                            <textarea id="anamnesis-antecedentes" rows="2"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-block">
+                        <span class="block-title">3. Refracción Objetiva / Retinoscopía</span>
+                        <div class="eye-section-title">Ojo Derecho (OD)</div>
+                        <div class="grid-3">
+                            <div class="form-group">
+                                <label for="od-esfera">Esfera</label>
+                                <input type="text" id="od-esfera">
+                            </div>
+                            <div class="form-group">
+                                <label for="od-cilindro">Cilindro</label>
+                                <input type="text" id="od-cilindro">
+                            </div>
+                            <div class="form-group">
+                                <label for="od-eje">Eje</label>
+                                <input type="text" id="od-eje">
+                            </div>
+                        </div>
+                        <div class="eye-section-title">Ojo Izquierdo (OI)</div>
+                        <div class="grid-3">
+                            <div class="form-group">
+                                <label for="oi-esfera">Esfera</label>
+                                <input type="text" id="oi-esfera">
+                            </div>
+                            <div class="form-group">
+                                <label for="oi-cilindro">Cilindro</label>
+                                <input type="text" id="oi-cilindro">
+                            </div>
+                            <div class="form-group">
+                                <label for="oi-eje">Eje</label>
+                                <input type="text" id="oi-eje">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-block">
+                        <span class="block-title">4. Fórmula Final & Subjetivo</span>
+                        <div class="grid-2">
+                            <div class="form-group">
+                                <label for="rx-adicion">Adición (Presbicia)</label>
+                                <input type="text" id="rx-adicion">
+                            </div>
+                            <div class="form-group">
+                                <label for="rx-av">Agudeza Visual Lograda</label>
+                                <input type="text" id="rx-av">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="diagnostico">Diagnóstico Optométrico</label>
+                            <input type="text" id="diagnostico">
+                        </div>
+                        <div class="form-group">
+                            <label for="notes">Conducta / Tratamiento Recomendado</label>
+                            <textarea id="notes" rows="2"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Guardar Historia Clínica</button>
+                </form>
+            </section>
+
+            <section class="card table-section">
+                <h2>Buscador de Historias Clínicas</h2>
+                
+                <div class="search-container">
+                    <input type="text" id="search-input">
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Fecha</th>
+                                <th>Nombre del Paciente</th>
+                                <th>Teléfono</th>
+                                <th>Diagnóstico Principal</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="clients-table-body">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="history-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-data-container">
+                </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script type="module" src="app.js"></script>
+</body>
+</html>
